@@ -85,7 +85,7 @@ function tableCreate(res) {
             tr.style.borderBottom = "1px solid #123C69";
             for (var j = 0; j < 4; j++) {
                 var td = document.createElement('td');
-                td.style.padding = "1% 2% 1% 2%";
+                td.style.padding = "0.8% 1.5% 0.8% 1.5%";
                 td.style.textAlign = 'left';
                 if (j == 0) {
                     var div_name = document.createElement('div');
@@ -102,14 +102,17 @@ function tableCreate(res) {
                     div_loc.appendChild(document.createTextNode(loc));
                     td.appendChild(div_loc);
                 } else if (j == 1) {
-                    var div_time = document.createElement('div');
-                    var timing = res.centers[i].from + " - " + res.centers[i].to;
-                    div_time.appendChild(document.createTextNode(timing));
-                    td.appendChild(div_time);
+                    div_date = document.createElement('div');
+                    div_date.style.fontWeight = "bold";
+                    res_date = res.centers[i].sessions[0].date;
+                    div_date.appendChild(document.createTextNode(res_date));
+                    td.appendChild(div_date);
+
                     var div_vaccine = document.createElement('div');
                     var vaccine = res.centers[i].sessions[0].vaccine;
                     div_vaccine.appendChild(document.createTextNode(vaccine));
                     td.appendChild(div_vaccine);
+
                     var div_price = document.createElement('div');
                     var price;
                     if (res.centers[i].fee_type == "Free") {
@@ -140,6 +143,14 @@ function tableCreate(res) {
                     td.appendChild(div_stat);
                     td.appendChild(document.createTextNode("Age : " + res.centers[i].sessions[0].min_age_limit + "+"));
                 } else {
+                    var div_time = document.createElement('div');
+                    div_time.style.border = "1.5px solid #123C69";
+                    div_time.style.marginRight = "55%";
+                    div_time.style.padding = "0.3% 1% 0.3% 1%";
+                    var timing = res.centers[i].from + " - " + res.centers[i].to;
+                    div_time.appendChild(document.createTextNode(timing));
+                    td.appendChild(div_time);
+
                     for (var k = 0; k < res.centers[i].sessions[0].slots.length; k+= 2) {
                         var div = document.createElement('div');
                         div.appendChild(document.createTextNode(res.centers[i].sessions[0].slots[k] + " " 
