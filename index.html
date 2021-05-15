@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vaccine Availability Checker</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script type="text/javascript" src="./scripts/main.js"></script>
+    </head>
+    <body onload="openCity(event, 'Pin')">
+        <header>
+            <h3>Vaccine Availability Checker</h3>
+        </header>
+        
+        <div class="tab">
+            <!-- <button class="tablinks" onclick="getLocation()">Home</button> -->
+            <button class="tablinks" onclick="openCity(event, 'Pin')">Pincode</button>
+            <button class="tablinks" onclick="openCity(event, 'Co')">Co-ordinates</button>
+            <button class="tablinks" onclick="openCity(event, 'Dist')">District</button>
+        </div>
+        
+        <div id="Pin" class="formcontent">
+            <input type="text" id="pin" class="input" placeholder="Pincode">
+            <input type="date" id="date" class="input" placeholder="date">
+            <button type="button" class="btn btn-outline-secondary" onclick="fetchPin()">Submit</button>
+        </div>
+        <div id="Co" class="formcontent">
+            <input type="text" id="co-lat" class="input" placeholder="latitude">
+            <input type="text" id="co-lon" class="input" placeholder="longitude">
+            <button type="button" class="btn btn-outline-secondary" onclick="fetchCoordinate()">Submit</button>
+        </div>
+        <div id="Dist" class="formcontent">
+            <input type="text" id="state" class="input" placeholder="state">
+            <input type="text" id="district" class="input" placeholder="district">
+            <button type="button" class="btn btn-outline-secondary" onclick="fetchDistrict()">Submit</button>
+        </div>
+
+        <section class="grid-container" id="container"></section>
+
+        <section class="err_msg" id="err_msg"></section>
+        
+        <footer class="footer"></footer>
+    </body>
+</html>

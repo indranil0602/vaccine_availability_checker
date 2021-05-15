@@ -1,0 +1,95 @@
+/*
+    ***************************************
+    DEVELOPER:  INDRANIL PAL
+    E-MAIL:     indranil.pal.0602@gmail.com
+    ***************************************
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  color: #123C69;
+  background-attachment: fixed;
+}
+
+header {
+  overflow: hidden;
+  padding: 0% 1% 0.5% 2%;
+  background-color: #EEE2DC;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #123C69;
+}
+
+.h-div {
+  width: 10%;
+}
+
+.tab {
+  overflow: hidden;
+  background-color: #123C69;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: 0.3s;
+  font-size: 17px;
+  color: #EEE2DC;
+}
+
+.tab button:hover {
+  background-color: #EDC7B7;
+  color: #123C69;
+}
+
+.tab button.active {
+  background-color: #EEE2DC;
+  color: #123C69;
+}
+
+.formcontent {
+  display: none;
+  padding: 1% 1% 1% 2%;
+  border-bottom: 1px solid #123C69;
+  border-top: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 0%;
+  margin: 3%;
+  visibility: hidden;
+  font-size: xx-small;
+  box-shadow:5px 10px 8px #888888;
+  /* height: 60%; */
+  overflow-y: auto;
+}
+
+.input {
+  padding: 0.12%;
+  margin-right: 1%;
+}
+
+.h2 {
+  font-size:large;
+  font-weight: bolder;
+}
+
+.form-city {
+  margin-top: 10%;
+}
+
+.err_msg {
+  visibility: hidden;
+  padding-left: 10%;
+}
