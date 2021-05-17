@@ -143,6 +143,10 @@ function tableCreate(res) {
                         div_stat.style.marginRight = "72%";
                     } else {
                         status = 'Available ' + res.centers[i].sessions[0].available_capacity;
+                        div_stat.style.backgroundColor = "#123C69";
+                        div_stat.style.border = "1.5px solid #123C69";
+                        div_stat.style.color = "white";
+                        div_stat.style.marginRight = "65%";
                     }
                     div_stat.appendChild(document.createTextNode(status));
                     td.appendChild(div_stat);
