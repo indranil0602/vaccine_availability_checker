@@ -13,7 +13,6 @@
         </header>
         
         <div class="tab">
-            <!-- <button class="tablinks" onclick="getLocation()">Home</button> -->
             <button class="tablinks" onclick="openCity(event, 'Pin')">Pincode</button>
             <button class="tablinks" onclick="openCity(event, 'Co')">Co-ordinates</button>
             <button class="tablinks" onclick="openCity(event, 'Dist')">District</button>
@@ -22,16 +21,18 @@
         <div id="Pin" class="formcontent">
             <input type="text" id="pin" class="input" placeholder="Pincode">
             <input type="date" id="date" class="input" placeholder="date">
-            <button type="button" class="btn btn-outline-secondary" onclick="fetchPin()">Submit</button>
+            <button type="button" class="submit-btn" onclick="fetchPin()">Submit</button>
         </div>
         <div id="Co" class="formcontent">
             <input type="text" id="co-lat" class="input" placeholder="latitude">
             <input type="text" id="co-lon" class="input" placeholder="longitude">
+            <input type="date" id="date" class="input" placeholder="date">
             <button type="button" class="btn btn-outline-secondary" onclick="fetchCoordinate()">Submit</button>
         </div>
         <div id="Dist" class="formcontent">
             <input type="text" id="state" class="input" placeholder="state">
             <input type="text" id="district" class="input" placeholder="district">
+            <input type="date" id="date" class="input" placeholder="date">
             <button type="button" class="btn btn-outline-secondary" onclick="fetchDistrict()">Submit</button>
         </div>
 
