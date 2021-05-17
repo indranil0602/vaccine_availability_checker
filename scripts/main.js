@@ -29,7 +29,7 @@ function fetchPin() {
     console.log(date);
     
     var finalUrl = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=" + pin + "&date=" + date;
-    console.log(finalUrl);
+    //console.log(finalUrl);
     sendRequest(finalUrl);
 }
 
@@ -48,7 +48,7 @@ function sendRequest(finalUrl, callback) {
         }
         if (xhr.readyState == 4 && xhr.status == 200) {
             var res = JSON.parse(xhr.responseText);
-            console.log(res);
+            //console.log(res);
             tableCreate(res);
         }
     }
@@ -82,6 +82,11 @@ function tableCreate(res) {
     } else {
         for (var i = 0; i < res.centers.length; i++) {
             var tr = document.createElement('tr');
+            if (i % 2 == 0) { 
+                tr.style.backgroundColor = "#EEE2DC";
+            } else { 
+                tr.style.backgroundColor = "#EDC7B7";
+            }
             tr.style.borderBottom = "1px solid #123C69";
             for (var j = 0; j < 4; j++) {
                 var td = document.createElement('td');

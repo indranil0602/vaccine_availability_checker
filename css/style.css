@@ -71,13 +71,19 @@ h2 {
   visibility: hidden;
   font-size: xx-small;
   box-shadow:5px 10px 8px #888888;
-  /* height: 60%; */
   overflow-y: auto;
 }
 
 .input {
   padding: 0.12%;
   margin-right: 1%;
+}
+
+.submit-btn {
+  background-color: #123C69;
+  color: white;
+  padding: 0.25% 0.55%;
+  border-radius: 5px;
 }
 
 .h2 {
