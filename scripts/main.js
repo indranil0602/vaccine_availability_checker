@@ -82,10 +82,13 @@ function tableCreate(res) {
     } else {
         for (var i = 0; i < res.centers.length; i++) {
             var tr = document.createElement('tr');
+            var borderColor;
             if (i % 2 == 0) { 
                 tr.style.backgroundColor = "#EEE2DC";
+                borderColor = "#EEE2DC";
             } else { 
                 tr.style.backgroundColor = "#EDC7B7";
+                borderColor = "#EDC7B7";
             }
             tr.style.borderBottom = "1px solid #123C69";
             for (var j = 0; j < 4; j++) {
@@ -125,34 +128,108 @@ function tableCreate(res) {
                         div_price.appendChild(document.createTextNode(price));
                         div_price.style.backgroundColor = "#123C69";
                         div_price.style.color = "white";
-                        div_price.style.marginRight = "87%";
+                        div_price.style.marginRight = "85%";
                         div_price.style.textAlign = "center";
                     } else {
-                        price = res.centers[i].fee_type + " rs";
+                        price = res.centers[i].fee_type + " : Rs " + res.centers[i].vaccine_fees[0].fee;
                         div_price.appendChild(document.createTextNode(price));
+                        div_price.style.backgroundColor = "#AC3B61";
+                        div_price.style.color = "white";
+                        div_price.style.marginRight = "67%";
+                        div_price.style.textAlign = "center";
                     }
                     td.appendChild(div_price);
                 } else if (j == 2) {
-                    div_stat = document.createElement('div');
-                    div_stat.style.textAlign = "center";
-                    var status;
-                    if (res.centers[i].sessions[0].available_capacity == 0) {
-                        status = 'Booked';
-                        div_stat.style.backgroundColor = "red";
-                        div_stat.style.color = "white";
-                        div_stat.style.marginRight = "72%";
+                    div_dose = document.createElement('div');
+                    div_dose.style.width = "60%";
+                    div_dose.style.display = "table";
+
+                    div_dose1 = document.createElement('div');
+                    div_dose1.style.display = "table-row";
+
+                    div_dose1_dose = document.createElement('div');
+                    div_dose1_dose.style.display = "table-cell";
+                    div_dose1_dose.style.width = "15%";
+                    
+                    var dose1 = 'Dose : 1';
+                    div_dose1_dose.appendChild(document.createTextNode(dose1));
+                    
+                    div_dose1_stat = document.createElement('div');
+                    div_dose1_stat.style.display = "table-cell";
+                    div_dose1_stat.style.textAlign = "center";
+                    div_dose1_stat.style.width = "60%";
+                    
+                    var stat1;
+                    if (res.centers[i].sessions[0].available_capacity_dose1 == 0) {
+                        var stat1 = 'Booked';
+                        div_dose1_stat.style.backgroundColor = "red";
+                        div_dose1_stat.style.color = "white";
+                        div_dose1_stat.style.marginRight = "72%";
                     } else {
-                        status = 'Available ' + res.centers[i].sessions[0].available_capacity;
-                        div_stat.style.backgroundColor = "#123C69";
-                        div_stat.style.border = "1.5px solid #123C69";
-                        div_stat.style.color = "white";
-                        div_stat.style.marginRight = "65%";
+                        stat1 = 'Available ' + res.centers[i].sessions[0].available_capacity_dose1;
+                        if (res.centers[i].sessions[0].available_capacity_dose1 <= 10) { 
+                            div_dose1_stat.style.backgroundColor = "#f5d442";
+                            div_dose1_stat.style.color = "#123C69";
+                        } else {
+                            div_dose1_stat.style.backgroundColor = "#123C69";
+                            div_dose1_stat.style.color = "white";
+                        }
+                        
+                        //div_dose1_stat.style.marginRight = "65%";
                     }
-                    div_stat.appendChild(document.createTextNode(status));
-                    td.appendChild(div_stat);
+                    div_dose1_stat.style.borderBottom = "2px solid " + borderColor;
+                    div_dose1_stat.appendChild(document.createTextNode(stat1));   
+                    
+                    div_dose1.appendChild(div_dose1_dose);
+                    div_dose1.appendChild(div_dose1_stat);
+
+                    div_dose.appendChild(div_dose1);                               //dose 1 completed
+
+                    div_dose2 = document.createElement('div');
+                    div_dose2.style.display = "table-row";
+
+                    div_dose2_dose = document.createElement('div');
+                    div_dose2_dose.style.display = "table-cell";
+                    div_dose2_dose.style.width = "30%";
+                    
+                    var dose2 = 'Dose : 2';
+                    div_dose2_dose.appendChild(document.createTextNode(dose2));
+
+                    div_dose2_stat = document.createElement('div');
+                    div_dose2_stat.style.display = "table-cell";
+                    div_dose2_stat.style.textAlign = "center";
+                    div_dose2_stat.style.width = "50%";
+                    
+                    var stat2;
+                    if (res.centers[i].sessions[0].available_capacity_dose2 == 0) {
+                        var stat2 = 'Booked';
+                        div_dose2_stat.style.backgroundColor = "red";
+                        div_dose2_stat.style.color = "white";
+                        div_dose2_stat.style.marginRight = "72%";
+                    } else {
+                        stat2 = 'Available ' + res.centers[i].sessions[0].available_capacity_dose2;
+                        if (res.centers[i].sessions[0].available_capacity_dose2 <= 10) { 
+                            div_dose2_stat.style.backgroundColor = "#f5d442";
+                            div_dose2_stat.style.color = "#123C69";
+                        } else {
+                            div_dose2_stat.style.backgroundColor = "#123C69";
+                            div_dose2_stat.style.color = "white";
+                        }
+                    }
+                    div_dose2_stat.style.borderBottom = "2px solid " + borderColor;
+                    div_dose2_stat.appendChild(document.createTextNode(stat2));   
+                    
+                    div_dose2.appendChild(div_dose2_dose);
+                    div_dose2.appendChild(div_dose2_stat);
+
+                    div_dose.appendChild(div_dose2);
+
+                    td.appendChild(div_dose);
+
                     td.appendChild(document.createTextNode("Age : " + res.centers[i].sessions[0].min_age_limit + "+"));
                 } else {
                     var div_time = document.createElement('div');
+                    div_time.style.textAlign = "center";
                     div_time.style.border = "1.5px solid #123C69";
                     div_time.style.marginRight = "55%";
                     div_time.style.padding = "0.3% 1% 0.3% 1%";
