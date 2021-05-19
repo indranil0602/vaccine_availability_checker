@@ -150,7 +150,6 @@ function tableCreate(res) {
                     div_dose1_dose = document.createElement('div');
                     div_dose1_dose.style.display = "table-cell";
                     div_dose1_dose.style.width = "15%";
-                    
                     var dose1 = 'Dose : 1';
                     div_dose1_dose.appendChild(document.createTextNode(dose1));
                     
@@ -158,31 +157,22 @@ function tableCreate(res) {
                     div_dose1_stat.style.display = "table-cell";
                     div_dose1_stat.style.textAlign = "center";
                     div_dose1_stat.style.width = "60%";
-                    
                     var stat1;
                     if (res.centers[i].sessions[0].available_capacity_dose1 == 0) {
                         var stat1 = 'Booked';
-                        div_dose1_stat.style.backgroundColor = "red";
+                        div_dose1_stat.style.backgroundColor = "#AC3B61";
                         div_dose1_stat.style.color = "white";
                         div_dose1_stat.style.marginRight = "72%";
                     } else {
                         stat1 = 'Available ' + res.centers[i].sessions[0].available_capacity_dose1;
-                        if (res.centers[i].sessions[0].available_capacity_dose1 <= 10) { 
-                            div_dose1_stat.style.backgroundColor = "#f5d442";
-                            div_dose1_stat.style.color = "#123C69";
-                        } else {
-                            div_dose1_stat.style.backgroundColor = "#123C69";
-                            div_dose1_stat.style.color = "white";
-                        }
-                        
-                        //div_dose1_stat.style.marginRight = "65%";
+                        div_dose1_stat.style.backgroundColor = "#123C69";
+                        div_dose1_stat.style.color = "white";
                     }
-                    div_dose1_stat.style.borderBottom = "2px solid " + borderColor;
+                    div_dose1_stat.style.border = "1px solid " + borderColor;
                     div_dose1_stat.appendChild(document.createTextNode(stat1));   
                     
                     div_dose1.appendChild(div_dose1_dose);
                     div_dose1.appendChild(div_dose1_stat);
-
                     div_dose.appendChild(div_dose1);                               //dose 1 completed
 
                     div_dose2 = document.createElement('div');
@@ -191,7 +181,6 @@ function tableCreate(res) {
                     div_dose2_dose = document.createElement('div');
                     div_dose2_dose.style.display = "table-cell";
                     div_dose2_dose.style.width = "30%";
-                    
                     var dose2 = 'Dose : 2';
                     div_dose2_dose.appendChild(document.createTextNode(dose2));
 
@@ -199,29 +188,22 @@ function tableCreate(res) {
                     div_dose2_stat.style.display = "table-cell";
                     div_dose2_stat.style.textAlign = "center";
                     div_dose2_stat.style.width = "50%";
-                    
                     var stat2;
                     if (res.centers[i].sessions[0].available_capacity_dose2 == 0) {
                         var stat2 = 'Booked';
-                        div_dose2_stat.style.backgroundColor = "red";
+                        div_dose2_stat.style.backgroundColor = "#AC3B61";
                         div_dose2_stat.style.color = "white";
                         div_dose2_stat.style.marginRight = "72%";
                     } else {
                         stat2 = 'Available ' + res.centers[i].sessions[0].available_capacity_dose2;
-                        if (res.centers[i].sessions[0].available_capacity_dose2 <= 10) { 
-                            div_dose2_stat.style.backgroundColor = "#f5d442";
-                            div_dose2_stat.style.color = "#123C69";
-                        } else {
-                            div_dose2_stat.style.backgroundColor = "#123C69";
-                            div_dose2_stat.style.color = "white";
-                        }
+                        div_dose2_stat.style.backgroundColor = "#123C69";
+                        div_dose2_stat.style.color = "white";
                     }
-                    div_dose2_stat.style.borderBottom = "2px solid " + borderColor;
+                    div_dose2_stat.style.border = "1px solid " + borderColor;
                     div_dose2_stat.appendChild(document.createTextNode(stat2));   
                     
                     div_dose2.appendChild(div_dose2_dose);
                     div_dose2.appendChild(div_dose2_stat);
-
                     div_dose.appendChild(div_dose2);
 
                     td.appendChild(div_dose);
