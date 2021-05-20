@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script type="text/javascript" src="./scripts/main.js"></script>
+        <script type="text/javascript" src="./scripts/location.js"></script>
     </head>
     <body onload="openCity(event, 'Pin')">
         <header>
@@ -14,8 +15,8 @@
         
         <div class="tab">
             <button class="tablinks" onclick="openCity(event, 'Pin')">Pincode</button>
-            <button class="tablinks" onclick="openCity(event, 'Co')">Co-ordinates</button>
-            <button class="tablinks" onclick="openCity(event, 'Dist')">District</button>
+            <!-- <button class="tablinks" onclick="openCity(event, 'Co')">Co-ordinates</button> -->
+            <button class="tablinks" onclick="openCity(event, 'Dist'); fetchStateCodes()">District</button>
         </div>
         
         <div id="Pin" class="formcontent">
@@ -23,17 +24,21 @@
             <input type="date" id="date" class="input" placeholder="date">
             <button type="button" class="submit-btn" onclick="fetchPin()">Submit</button>
         </div>
-        <div id="Co" class="formcontent">
+        <!-- <div id="Co" class="formcontent">
             <input type="text" id="co-lat" class="input" placeholder="latitude">
             <input type="text" id="co-lon" class="input" placeholder="longitude">
             <input type="date" id="date" class="input" placeholder="date">
             <button type="button" class="submit-btn" onclick="fetchCoordinate()">Submit</button>
-        </div>
+        </div> -->
         <div id="Dist" class="formcontent">
-            <input type="text" id="state" class="input" placeholder="state">
-            <input type="text" id="district" class="input" placeholder="district">
-            <input type="date" id="date" class="input" placeholder="date">
-            <button type="button" class="submit-btn" onclick="fetchDistrict()">Submit</button>
+            <select id="states" name="states" aria-placeholder="States" onchange="fetchDistrict()">
+                <option>Select State</option>
+            </select>
+            <select id="districts" name="districts">
+                <option>Select District</option>
+            </select>
+            <input type="date" id="dateDist" class="input" placeholder="date">
+            <button type="button" class="submit-btn" onclick="getDistrictCode()">Submit</button>
         </div>
 
         <section class="grid-container" id="container"></section>
