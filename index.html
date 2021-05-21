@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script type="text/javascript" src="./scripts/main.js"></script>
         <script type="text/javascript" src="./scripts/location.js"></script>
+        <script type="text/javascript" src="./scripts/createbody.js"></script>
+        <script type="text/javascript" src="./scripts/filter.js"></script>
     </head>
     <body onload="openCity(event, 'Pin')">
         <header>
@@ -14,31 +16,36 @@
         </header>
         
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'Pin')">Pincode</button>
-            <!-- <button class="tablinks" onclick="openCity(event, 'Co')">Co-ordinates</button> -->
+            <button class="tablinks" onclick="openCity(event, 'Pin'); stopDivVisibility()">Pincode</button>
             <button class="tablinks" onclick="openCity(event, 'Dist'); fetchStateCodes()">District</button>
         </div>
         
         <div id="Pin" class="formcontent">
             <input type="text" id="pin" class="input" placeholder="Pincode">
             <input type="date" id="date" class="input" placeholder="date">
-            <button type="button" class="submit-btn" onclick="fetchPin()">Submit</button>
+            <button type="button" class="submit-btn" onclick="fetchPin()">Search</button>
+            <button type="button" id="filterBtn11" class="submit-btn" onclick="get18to44('pin')">18 - 44</button>
+            <button type="button" id="filterBtn12" class="submit-btn" onclick="get45plus('pin')">45 +</button>
+            <button type="button" id="filterBtn13" class="submit-btn" onclick="getFree('pin')">Free</button>
+            <button type="button" id="filterBtn14" class="submit-btn" onclick="getPaid('pin')">Paid</button>
+            <button type="button" id="filterBtn15" class="submit-btn" onclick="getCovaxin('pin')">Covaxin</button>
+            <button type="button" id="filterBtn16" class="submit-btn" onclick="getCovishild('pin')">Covishild</button>
         </div>
-        <!-- <div id="Co" class="formcontent">
-            <input type="text" id="co-lat" class="input" placeholder="latitude">
-            <input type="text" id="co-lon" class="input" placeholder="longitude">
-            <input type="date" id="date" class="input" placeholder="date">
-            <button type="button" class="submit-btn" onclick="fetchCoordinate()">Submit</button>
-        </div> -->
         <div id="Dist" class="formcontent">
-            <select id="states" name="states" aria-placeholder="States" onchange="fetchDistrict()">
+            <select id="states" name="states" class="sel-states" aria-placeholder="States" onchange="fetchDistrict()">
                 <option>Select State</option>
             </select>
-            <select id="districts" name="districts">
+            <select id="districts" class="sel-dists" name="districts">
                 <option>Select District</option>
             </select>
             <input type="date" id="dateDist" class="input" placeholder="date">
-            <button type="button" class="submit-btn" onclick="getDistrictCode()">Submit</button>
+            <button type="button" class="submit-btn" onclick="getDistrictCode()">Search</button>
+            <button type="button" id="filterBtn21" class="submit-btn" onclick="get18to44('dist')">18 - 44</button>
+            <button type="button" id="filterBtn22" class="submit-btn" onclick="get45plus('dist')">45 +</button>
+            <button type="button" id="filterBtn23" class="submit-btn" onclick="getFree('dist')">Free</button>
+            <button type="button" id="filterBtn24" class="submit-btn" onclick="getPaid('dist')">Paid</button>
+            <button type="button" id="filterBtn25" class="submit-btn" onclick="getCovaxin('dist')">Covaxin</button>
+            <button type="button" id="filterBtn26" class="submit-btn" onclick="getCovishild('dist')">Covishild</button>
         </div>
 
         <section class="grid-container" id="container"></section>

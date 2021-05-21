@@ -1,9 +1,7 @@
-/*
-    ***************************************
+/********************************************
     DEVELOPER:  INDRANIL PAL
     E-MAIL:     indranil.pal.0602@gmail.com
-    ***************************************
-*/
+********************************************/
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
@@ -19,6 +17,7 @@ header {
   overflow: hidden;
   padding: 0% 1% 0.5% 2%;
   background-color: #EEE2DC;
+  background-attachment: fixed;
 }
 
 h2 {
@@ -48,8 +47,8 @@ h2 {
 }
 
 .tab button:hover {
-  background-color: #EDC7B7;
-  color: #123C69;
+  background-color: #AC3B61;
+  color: #EEE2DC;
 }
 
 .tab button.active {
@@ -84,6 +83,7 @@ h2 {
   color: white;
   padding: 0.25% 0.55%;
   border-radius: 5px;
+  margin-left: 1%;
 }
 
 .h2 {
@@ -93,6 +93,13 @@ h2 {
 
 .form-city {
   margin-top: 10%;
+}
+
+.sel-state {
+  background-color: white;
+  margin-right: 2%;
+  width: 20%;
+  padding: 5%;
 }
 
 .err_msg {
