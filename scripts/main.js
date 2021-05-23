@@ -48,8 +48,6 @@ var pinResponse;
 
 function sendRequest(finalUrl, callback) {
     
-    document.getElementById("err_msg").style.visibility = "hidden";          
-
     var xhr = new XMLHttpRequest();
     xhr.open('GET', finalUrl, true);
     xhr.send();
